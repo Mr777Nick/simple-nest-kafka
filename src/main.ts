@@ -7,7 +7,16 @@ async function bootstrap() {
     transport: Transport.KAFKA,
     options: {
       client: {
-        brokers: ['localhost:9092'],
+        brokers: ['pkc-l9wvm.ap-southeast-1.aws.confluent.cloud:9092'],
+        ssl: true,
+        sasl: {
+          mechanism: 'plain',
+          username: 'PQK4HCXFH2AV53QU',
+          password: '2fbNGuS599Fryc8qf/3EcIJptaGE/H/hFG9x98AWavDrchbURjnRn5RgU5DFIxQP'
+        },
+      },
+      consumer: {
+        groupId: "kds-testing-group"
       }
     }
   });
