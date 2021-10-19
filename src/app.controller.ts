@@ -6,9 +6,10 @@ import { AppService } from './app.service';
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @MessagePattern('kds-testing') // Our topic name
+  @MessagePattern('YIK-1449') // Our topic name
   getHello(@Payload() message) {
     console.log(message.value);
+    console.log(message)
     return 'Hello World';
   }
 }
