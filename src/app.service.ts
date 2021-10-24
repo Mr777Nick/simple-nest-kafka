@@ -5,7 +5,7 @@ import { IHeaders, KafkaService, SubscribeTo } from '@rob3000/nestjs-kafka';
 @Injectable()
 export class AppService {
   constructor(
-    @Inject('HERO_SERVICE') private client: KafkaService
+    @Inject('KAFKA_SERVICE') private client: KafkaService
   ) {}
 
   onModuleInit(): void {
@@ -13,8 +13,7 @@ export class AppService {
   }
 
   @SubscribeTo('YIK-1449')
-  async getWorld(@Payload() message, data: any, key: any, offset: number, timestamp: number, partition: number, headers: IHeaders): Promise<void> {
-    console.log(message)
+  async getWorld(data: any, key: any, offset: number, timestamp: number, partition: number, headers: IHeaders): Promise<void> {
     console.log(data)
     console.log(key)
     console.log(offset)

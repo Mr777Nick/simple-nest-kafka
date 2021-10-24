@@ -8,7 +8,7 @@ import { AppService } from './app.service';
 export class AppController {
   constructor(
     private readonly appService: AppService,
-    @Inject('HERO_SERVICE') private client: KafkaService
+    @Inject('KAFKA_SERVICE') private client: KafkaService
   ) {}
 
   @Get()
