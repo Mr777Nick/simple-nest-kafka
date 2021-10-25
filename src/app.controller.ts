@@ -18,7 +18,7 @@ export class AppController {
 
   async post(message: string = 'Hello world'): Promise<RecordMetadata[]> {
     const result = await this.client.send({
-      topic: 'YIK-1449',
+      topic: 'kds-testing',
       messages: [
         {
           key: '1',

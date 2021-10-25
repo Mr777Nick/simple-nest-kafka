@@ -12,6 +12,8 @@ import { AppService } from './app.service';
         const clientId = configService.get('APP_KAFKA_CLIENT_ID');
         const broker = configService.get('APP_KAFKA_BROKERS');
         const groupId = configService.get('APP_KAFKA_GROUP_ID');
+        const username = configService.get('APP_KAFKA_USERNAME');
+        const password = configService.get('APP_KAFKA_PASSWORD');
         return [
           {
             name: 'KAFKA_SERVICE',
@@ -19,8 +21,16 @@ import { AppService } from './app.service';
               client: {
                 clientId,
                 brokers: [broker],
+                ssl: true,
+                sasl: {
+                  mechanism: 'plain',
+                  username,
+                  password
+                },
               },
-              consumer: { groupId },
+              consumer: { 
+                groupId 
+              },
             },
           },
         ];

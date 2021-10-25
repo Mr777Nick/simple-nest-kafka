@@ -9,17 +9,12 @@ export class AppService {
   ) {}
 
   onModuleInit(): void {
-    this.client.subscribeToResponseOf('YIK-1449', this)
+    this.client.subscribeToResponseOf('kds-testing', this)
   }
 
-  @SubscribeTo('YIK-1449')
+  @SubscribeTo('kds-testing')
   async getWorld(data: any, key: any, offset: number, timestamp: number, partition: number, headers: IHeaders): Promise<void> {
     console.log(data)
-    console.log(key)
-    console.log(offset)
-    console.log(timestamp)
-    console.log(partition)
-    console.log(headers)
   }
   
   getHello(): string {
